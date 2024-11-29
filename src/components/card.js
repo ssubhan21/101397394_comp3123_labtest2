@@ -26,60 +26,59 @@ const WeatherCard = ({ weather }) => {
     };
 
     return (
-        <div className="text-white p-8 rounded-2xl shadow-lg max-w-lg w-full">
+        <div className="bg-gradient-to-r from-blue-100 via-blue-300 to-blue-500 p-6 rounded-lg shadow-lg max-w-lg w-full mx-auto">
             {/* City and Weather */}
-            <div className="text-center mb-6">
-                <h2 className="text-3xl font-bold">{name}, {country}</h2>
-                <p className="text-lg capitalize text-gray-400">{details.description}</p>
-                <WiCloudy className="mx-auto text-6xl text-gray-300 mt-4" />
+            <div className="text-center mb-4">
+                <h2 className="text-4xl font-semibold text-gray-800">{name}, {country}</h2>
+                <p className="text-xl text-gray-600 capitalize">{details.description}</p>
             </div>
 
-            {/* Temperature */}
+            {/* Main Weather Section */}
             <div className="flex justify-between items-center mb-6">
-                <div className="flex items-center space-x-3">
-                    <BsThermometerHalf size={36} className="text-blue-500" />
-                    <p className="text-5xl font-bold">
+                <div className="flex flex-col items-center">
+                    <WiCloudy size={50} className="text-gray-700" />
+                    <p className="text-6xl font-semibold text-gray-800">
                         {Math.round(temp - 273.15)}°C
                     </p>
                 </div>
                 <div className="text-right">
-                    <p>Feels Like: {Math.round(feels_like - 273.15)}°C</p>
-                    <p>Max: {Math.round(temp_max - 273.15)}°C</p>
-                    <p>Min: {Math.round(temp_min - 273.15)}°C</p>
+                    <p className="text-lg text-gray-600">Feels Like: {Math.round(feels_like - 273.15)}°C</p>
+                    <p className="text-lg text-gray-600">Max: {Math.round(temp_max - 273.15)}°C</p>
+                    <p className="text-lg text-gray-600">Min: {Math.round(temp_min - 273.15)}°C</p>
                 </div>
             </div>
 
             {/* Additional Details */}
-            <div className="grid grid-cols-2 gap-4 mb-6 text-gray-400">
+            <div className="grid grid-cols-2 gap-4 mb-6 text-gray-600">
                 <div className="flex items-center space-x-2">
-                    <WiHumidity size={36} />
+                    <WiHumidity size={30} className="text-blue-500" />
                     <p>Humidity: {humidity}%</p>
                 </div>
                 <div className="flex items-center space-x-2">
-                    <WiStrongWind size={36} />
+                    <WiStrongWind size={30} className="text-blue-500" />
                     <p>Wind: {speed} m/s</p>
                 </div>
                 <div className="flex items-center space-x-2">
-                    <p className="text-xl">Visibility:</p>
+                    <p className="text-lg">Visibility:</p>
                     <p>{(visibility / 1000).toFixed(1)} km</p>
                 </div>
                 <div className="flex items-center space-x-2">
-                    <p className="text-xl">Pressure:</p>
+                    <p className="text-lg">Pressure:</p>
                     <p>{pressure} hPa</p>
                 </div>
             </div>
 
             {/* Sunrise and Sunset */}
-            <div className="flex justify-between text-gray-400">
+            <div className="flex justify-between text-gray-600">
                 <div className="flex flex-col items-center">
-                    <WiSunrise size={36} />
-                    <p>Sunrise</p>
-                    <p>{formatTime(sunrise)}</p>
+                    <WiSunrise size={30} className="text-yellow-500" />
+                    <p className="text-sm">Sunrise</p>
+                    <p className="text-lg">{formatTime(sunrise)}</p>
                 </div>
                 <div className="flex flex-col items-center">
-                    <WiSunset size={36} />
-                    <p>Sunset</p>
-                    <p>{formatTime(sunset)}</p>
+                    <WiSunset size={30} className="text-red-500" />
+                    <p className="text-sm">Sunset</p>
+                    <p className="text-lg">{formatTime(sunset)}</p>
                 </div>
             </div>
         </div>

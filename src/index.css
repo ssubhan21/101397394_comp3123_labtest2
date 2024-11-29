@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Apply custom background to the body */
 @layer base {
     body {
         font-family: 'Poppins', sans-serif;
@@ -11,7 +10,6 @@
     }
 }
 
-/* Fade-in animation */
 .fade-in {
     animation: fadeIn 0.5s ease-in-out;
 }
